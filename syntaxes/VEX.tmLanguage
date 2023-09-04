@@ -107,6 +107,45 @@
 			<key>name</key>
 			<string>constant.numeric.vex</string>
 		</dict>
+
+		<!-- #define = Constant  -->
+		<dict>
+			<key>match</key>
+			<string>(#define)\s+(\w*)\s(.+)\n</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.other</string>
+				</dict>
+			</dict>
+		</dict>
+
+		<!-- #include = namespace  -->
+		<dict>
+			<key>match</key>
+			<string>(#include)\s+(.*)\n</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.namespace</string>
+				</dict>
+			</dict>
+		</dict>
+
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -122,7 +161,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\s*((#define|#else|#endif|#ifndef|#ifdef|#if|#include|#pragma|#undef).*$\n?)</string>
+			<string>\s*((#define|#else|#endif|#ifndef|#ifdef|#if|#pragma|#undef).*$\n?)</string>
 		</dict>
 		<dict>
 			<key>begin</key>
